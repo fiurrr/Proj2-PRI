@@ -1,39 +1,45 @@
 #ifndef _RECORD_H_
-#define  _RECORD_H
+#define _RECORD_H
 
-enum vehicleType{ROWER=1, OSOBOWY, CIEZAROWY, MOTOCYKL};
-struct nrRej{
+enum VehicleType {
+	ROWER=1, 
+	OSOBOWY, 
+	CIEZAROWY, 
+	MOTOCYKL
+};
+
+struct RegNum {
         char letters[3];
         char numbers[4];
 };
 
-struct record{
-        struct nrRej nrRejestracji;
-	char nazwImie[30];
-	enum vehicleType rodzajPoj;
-	int rokProd;
+struct Record {
+    struct RegNum registrationNumber;
+	char name[30];
+	enum VehicleType vehicleType;
+	int productionYear;
 };
 
-typedef struct record record;
+typedef struct Record Record;
 
-int nrRejVal(char* s);
-void nrRejEnter(record* r, char* s);
-void nrRejGet(record* r);
-void nrRejPrint(record* r);
+int isRegistrationNumberValid(char* s);
+void setRegistrationNumber(record* r, char* s);
+void getRegistrationNumber(record* r);
+void printRegistrationNumber(record* r);
 
-int nazwImieVal(char* s);
-void nazwImieEnter(record* r, char* s);
-void nazwImieGet(record* r);
-void nazwImiePrint(record* r);
+int isNameValid(char* s);
+void setName(record* r, char* s);
+void getName(record* r);
+void printName(record* r);
 
-int rodzajPojVal(char* s);
-void rodzajPojEnter(record* r, int s);
-void rodzajPojGet(record* r);
-void rodzajPojPrint(record* r);
+int isVehicleTypeValid(char* s);
+void setVehicleType(record* r, int s);
+void getVehicleType(record* r);
+void printVehicleType(record* r);
 
-int rokProdVal(char* s);
-void rokProdEnter(record* r, char* s);
-void rokProdGet(record* r);
-void rokProdPrint(record* r);
+int isProductionYearValid(char* s);
+void setProductionYear(record* r, char* s);
+void getProductionYear(record* r);
+void printProductionYear(record* r);
 
 #endif
